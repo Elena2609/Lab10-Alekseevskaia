@@ -1,6 +1,8 @@
 ﻿//Шаг 1. foreachпо строке
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
+using System.IO.Compression;
+using System.Runtime.InteropServices;
 
 string subject = "Программирование";
 
@@ -42,3 +44,76 @@ for (int i = 0; i < points.Length; i++)
     points[i] = points[i] + 5;
     Console.WriteLine(points[i]);
 }
+
+//Шаг 5. Нумерация элементов вручную
+Console.WriteLine();
+string[] students1 = {"Аня", "Борис", "Вика"};
+int number = 1;
+
+foreach (string student1 in students1){
+    Console.WriteLine($"{number}. {student1}");
+    number++;
+
+}
+
+//Самостоятельные задания
+Console.WriteLine();
+Console.WriteLine("Задача А");
+
+int[] num = {1, 2, 3, 4, 5};
+int sum = 0;
+foreach (int i in num){
+    Console.WriteLine(i);
+    sum += i;
+}
+Console.WriteLine($"Сумма: {sum}"); 
+
+Console.WriteLine();
+Console.WriteLine("Задача Б");
+
+string[] days = {"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"};
+foreach (string day in days){
+    Console.WriteLine($"{day}!");
+}
+
+//Индивидуальный вариант
+// Console.Write("Введите свою фамилию: ");
+// string surname = Console.ReadLine()!.Trim();
+// if (string.IsNullOrEmpty(surname)) {
+// Console.WriteLine("Фамилия не введена. Завершение работы.");
+// return;
+// }
+// Random rnd = new(surname.GetHashCode() + DateTime.Now.DayOfYear);
+// var assigned = Enumerable.Range(1, 10)
+// .OrderBy(_ => rnd.Next())
+// .Take(2)
+// .OrderBy(x => x)
+// .ToList();
+// Console.WriteLine($"Задачи: №{assigned[0]} и №{assigned[1]}");
+
+Console.WriteLine();
+Console.WriteLine("Вариант 1");
+int[] temperature = {24, 15, 23, -2, 0, 35, 17};
+
+int summ = 0;
+
+foreach (int temp in temperature) {
+    summ += temp;
+}
+double average1 = (double)summ/temperature.Length;
+Console.WriteLine($"Средняя температура за неделю: {average1}");
+
+Console.WriteLine();
+Console.WriteLine("Вариант 5");
+
+string[] books = {"Война и мир", "Мастер и Маргарита", "Преступление и наказание", "Ромео и Джульета"};
+string name = "Война и мир";
+bool found = false;
+
+foreach (string book in books) {
+    if (book == name){
+        found = true;
+        break;
+    }
+}
+Console.WriteLine(found ? "Найдено" : "Не найдено");
